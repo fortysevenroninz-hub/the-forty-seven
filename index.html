@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,7 +10,9 @@
     <meta name="description" content="The Forty-Seven">
     <meta name="theme-color" content="#ECECEC">
 
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="enso.png">
+    <link rel="apple-touch-icon" href="enso.png">
 
     <style>
 
@@ -39,13 +40,12 @@
             overflow: hidden;
         }
 
-        .enso {
-            width: clamp(120px, 18vw, 260px);
+        img {
+            width: min(65vw, 65vh);
             height: auto;
             display: block;
             user-select: none;
-            -webkit-user-drag: none;
-            opacity: 1;
+            pointer-events: none;
         }
 
     </style>
@@ -54,11 +54,7 @@
 
 <body>
 
-    <img
-        src="enso.png"
-        alt="The Forty-Seven"
-        class="enso"
-    >
+    <img src="enso.png" alt="Ensō">
 
 </body>
 
