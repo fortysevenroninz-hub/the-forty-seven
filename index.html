@@ -1,61 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>The Forty-Seven</title>
+<title>The Forty-Seven</title>
+<meta name="description" content="47 lives • one story">
+<meta name="theme-color" content="#ECECEC">
 
-    <meta name="description" content="The Forty-Seven">
-    <meta name="theme-color" content="#ECECEC">
+<link rel="icon" type="image/png" href="enso.png">
+<link rel="apple-touch-icon" href="enso.png">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="enso.png">
-    <link rel="apple-touch-icon" href="enso.png">
+<style>
+:root {
+    --background: #ECECEC;
+    --black: #0A0A0A;
+    --muted: #8A8A8A;
+}
 
-    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        :root {
-            --background: #ECECEC;
-        }
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+body {
+    background: var(--background);
+    color: var(--black);
+    font-family: Helvetica, Arial, sans-serif;
+    overflow: hidden;
+}
 
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-        }
+.page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 24px;
+    position: relative;
+}
 
-        body {
-            background: var(--background);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 520px;
+    transform: translateY(-2vh);
+}
 
-        img {
-            width: min(65vw, 65vh);
-            height: auto;
-            display: block;
-            user-select: none;
-            pointer-events: none;
-        }
+.enso {
+    width: clamp(120px, 18vw, 260px);
+    height: auto;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+    margin-bottom: 54px;
+}
 
-    </style>
+.claim {
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    margin-bottom: 72px;
+    text-align: center;
+}
 
+.newsletter {
+    width: min(100%, 360px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newsletter-title {
+    font-size: 12px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+}
+
+.email {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--black);
+    background: transparent;
+    padding: 0 0 10px;
+    font-size: 18px;
+    color: var(--black);
+    text-align: center;
+    outline: none;
+    border-radius: 0;
+}
+
+.email::placeholder {
+    color: var(--muted);
+}
+
+.enter {
+    margin-top: 34px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--black);
+    padding-bottom: 7px;
+    font-size: 12px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--black);
+    cursor: pointer;
+    transition: opacity 180ms ease;
+}
+
+.enter:hover {
+    opacity: 0.45;
+}
+
+.footer {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.instagram {
+    width: 22px;
+    height: 22px;
+    color: var(--black);
+    text-decoration: none;
+    transition: opacity 180ms ease;
+}
+
+.instagram:hover {
+    opacity: 0.45;
+}
+
+.instagram svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    stroke: currentColor;
+}
+
+.copyright {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+    .main {
+        transform: translateY(-4vh);
+    }
+
+    .enso {
+        margin-bottom: 46px;
+    }
+
+    .claim {
+        margin-bottom: 58px;
+        letter-spacing: 0.08em;
+    }
+
+    .newsletter-title {
+        letter-spacing: 0.22em;
+    }
+
+    .email {
+        font-size: 17px;
+    }
+
+    .footer {
+        left: 22px;
+        right: 22px;
+    }
+
+    .copyright {
+        font-size: 9px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <img src="enso.png" alt="Ensō">
+<main class="page">
+    <section class="main" aria-label="The Forty-Seven">
+
+        <img src="enso.png" alt="The Forty-Seven" class="enso">
+
+        <div class="claim">47 lives • one story</div>
+
+        <form class="newsletter" action="https://formsubmit.co/fortysevenroninz@gmail.com" method="POST">
+            <div class="newsletter-title">Enter the path</div>
+
+            <input
+                class="email"
+                type="email"
+                name="email"
+                placeholder="E-mail address"
+                required
+            >
+
+            <input type="hidden" name="_subject" value="New entry: The Forty-Seven">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://the-forty-seven.com/welcome.html">
+
+            <button class="enter" type="submit">Enter</button>
+        </form>
+
+    </section>
+
+    <footer class="footer">
+        <a
+            class="instagram"
+            href="https://www.instagram.com/the_forty_seven/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+        >
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"></circle>
+            </svg>
+        </a>
+
+        <div class="copyright">© 2026 The Forty-Seven</div>
+    </footer>
+</main>
 
 </body>
-
 </html>
